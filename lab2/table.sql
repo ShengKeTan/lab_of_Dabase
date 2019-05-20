@@ -1,3 +1,10 @@
+DROP TABLE IF EXISTS department;
+CREATE TABLE department
+    (did INT,
+     dname CHAR(10) NOT NULL,
+     PRIMARY KEY (did)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 DROP TABLE IF EXISTS employee;
 CREATE TABLE employee
     (eid INT,
@@ -8,14 +15,7 @@ CREATE TABLE employee
      sex CHAR(2),
      PRIMARY KEY (eid),
      FOREIGN KEY (did) REFERENCES department(did)
-    ) ENGINE=InnoDB DEFAUTL CHARSET=utf8;
-
-DROP TABLE IF EXISTS department;
-CREATE TABLE department
-    (did INT,
-     dname CHAR(10) NOT NULL,
-     PRIMARY KEY (did)
-    ) ENGINE=InnoDB DEFAUTL CHARSET=utf8;
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS ch_eck;
 CREATE TABLE ch_eck
@@ -24,14 +24,14 @@ CREATE TABLE ch_eck
      cyear INT,
      cmonth INT,
      cday INT,
-     late INT DEFAULT 0,
-     leave INT DEFAULT 0,
-     duty INT DEFAULT 0,
-     noduty INT DEFAULT 0,
-     rest INT DEFAULT 0,
+     `late` BOOLEAN DEFAULT 0,
+     `leave` BOOLEAN DEFAULT 0,
+     `duty` BOOLEAN DEFAULT 0,
+     `noduty` BOOLEAN DEFAULT 0,
+     `rest` BOOLEAN DEFAULT 0,
      PRIMARY KEY (cid),
      FOREIGN KEY (eid) REFERENCES employee(eid)
-    ) ENGINE=InnoDB DEFAUTL CHARSET=utf8;
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS post;
 CREATE TABLE post
@@ -40,7 +40,7 @@ CREATE TABLE post
      rate INT,
      bpay DECIMAL(10,2),
      PRIMARY KEY (pid)
-    ) ENGINE=InnoDB DEFAUTL CHARSET=utf8;
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS allowance;
 CREATE TABLE allowance
@@ -53,15 +53,14 @@ CREATE TABLE allowance
      extra DECIMAL(10,2),
      PRIMARY KEY (eid,ayear,amonth,aday),
      FOREIGN KEY (eid) REFERENCES employee(eid)
-    ) ENGINE=InnoDB DEFAUTL CHARSET=utf8;
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS salary;
 CREATE TABLE salary
     (said INT,
      eid INT,
-     ename CHAR(10),
-     dname CHAR(10),
-     pname CHAR(10),
+     did INT,
+     pid INT,
      mtimes INT,
      ctimes INT,
      bpay DECIMAL(10,2),
@@ -71,11 +70,10 @@ CREATE TABLE salary
      smonth INT,
      sday INT,
      PRIMARY KEY (said),
-     FOREIGN KEY (eid) REFERENCES employee(eid),
-     FOREIGN KEY (ename) REFERENCES employee(ename),
-     FOREIGN KEY (dname) REFERENCES department(dname),
-     FOREIGN KEY (pname) REFERENCES post(pname)
-    ) ENGINE=InnoDB DEFAUTL CHARSET=utf8;
+     FOREIGN KEY (did) REFERENCES department(did),
+     FOREIGN KEY (pid) REFERENCES post(pid),
+     FOREIGN KEY (eid) REFERENCES employee(eid)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS _usr;
 CREATE TABLE _usr
@@ -85,4 +83,4 @@ CREATE TABLE _usr
      authority BOOLEAN DEFAULT 0,
      PRIMARY KEY (usr),
      FOREIGN KEY (eid) REFERENCES employee(eid)
-    ) ENGINE=InnoDB DEFAUTL CHARSET=utf8;
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
