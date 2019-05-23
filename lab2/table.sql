@@ -5,6 +5,15 @@ CREATE TABLE department
      PRIMARY KEY (did)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS post;
+CREATE TABLE post
+    (pid INT,
+     pname CHAR(10) NOT NULL,
+     rate INT,
+     bpay DECIMAL(10,2),
+     PRIMARY KEY (pid)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 DROP TABLE IF EXISTS employee;
 CREATE TABLE employee
     (eid INT,
@@ -14,7 +23,8 @@ CREATE TABLE employee
      age INT,
      sex CHAR(2),
      PRIMARY KEY (eid),
-     FOREIGN KEY (did) REFERENCES department(did)
+     FOREIGN KEY (did) REFERENCES department(did),
+     FOREIGN KEY (pid) REFERENCES post(pid)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS ch_eck;
@@ -31,15 +41,6 @@ CREATE TABLE ch_eck
      `rest` BOOLEAN DEFAULT 0,
      PRIMARY KEY (cid),
      FOREIGN KEY (eid) REFERENCES employee(eid)
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-DROP TABLE IF EXISTS post;
-CREATE TABLE post
-    (pid INT,
-     pname CHAR(10) NOT NULL,
-     rate INT,
-     bpay DECIMAL(10,2),
-     PRIMARY KEY (pid)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS allowance;
