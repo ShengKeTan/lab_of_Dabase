@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AdminController">
+   <children>
+      <AnchorPane layoutX="-200.0" layoutY="-187.0" prefHeight="591.0" prefWidth="754.0">
+         <children>
+            <MenuBar layoutX="201.0" layoutY="188.0" prefHeight="29.0" prefWidth="554.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="信息管理">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#on_empinfo_click" text="职工信息管理" />
+                        <MenuItem mnemonicParsing="false" text="职位管理" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="工资管理">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="工资管理" />
+                        <MenuItem mnemonicParsing="false" text="月工资生成" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="考勤管理">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="考勤设置" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="津贴管理">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="津贴设置" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="统计管理">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="工资统计" />
+                        <MenuItem mnemonicParsing="false" text="年终奖统计" />
+                        <MenuItem mnemonicParsing="false" text="报表生成" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="用户管理">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="账号管理" />
+                        <MenuItem mnemonicParsing="false" text="权限设置" />
+                    </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

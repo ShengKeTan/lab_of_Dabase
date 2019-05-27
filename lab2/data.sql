@@ -1,7 +1,7 @@
 /**insert into department
 *（did，dname）
 */
-INSERT INTO deprtment
+INSERT INTO department
 VALUES (00001,'营业部'),
 (00002,'财务部');
 

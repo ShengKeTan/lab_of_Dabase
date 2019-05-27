@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LogonController">
+   <children>
+      <AnchorPane layoutX="-131.0" layoutY="-122.0" prefHeight="416.0" prefWidth="545.0">
+         <children>
+            <TextField fx:id="usrname" layoutX="262.0" layoutY="283.0" onAction="#on_logon_click" promptText="用户名" />
+            <PasswordField fx:id="password" layoutX="262.0" layoutY="317.0" onAction="#on_logon_click" promptText="密码" />
+            <Button fx:id="logon" layoutX="262.0" layoutY="355.0" mnemonicParsing="false" onAction="#on_logon_click" prefHeight="27.0" prefWidth="167.0" text="登入" textFill="#16aad3" />
+            <ImageView fitHeight="27.0" fitWidth="30.0" layoutX="224.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/true.jpg" />
+               </image></ImageView>
+            <ImageView fitHeight="27.0" fitWidth="30.0" layoutX="224.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/timg.jpg" />
+               </image></ImageView>
+            <Label fx:id="note" layoutX="262.0" layoutY="266.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
