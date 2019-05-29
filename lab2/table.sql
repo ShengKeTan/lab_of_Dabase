@@ -29,17 +29,17 @@ CREATE TABLE employee
 
 DROP TABLE IF EXISTS ch_eck;
 CREATE TABLE ch_eck
-    (cid INT,
-     eid INT,
+    (eid INT,
      cyear INT,
      cmonth INT,
      cday INT,
+     ctimes TIMESTAMP,
      `late` BOOLEAN DEFAULT 0,
      `leave` BOOLEAN DEFAULT 0,
      `duty` BOOLEAN DEFAULT 0,
      `noduty` BOOLEAN DEFAULT 0,
      `rest` BOOLEAN DEFAULT 0,
-     PRIMARY KEY (cid),
+     PRIMARY KEY (eid,cyear,cmonth,cday),
      FOREIGN KEY (eid) REFERENCES employee(eid)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

@@ -14,7 +14,6 @@ public class Con2mysql {
 			mycon = (Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/lab2?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true", "root", "tsk1998810");
 			if(mycon != null) {
 				System.out.println("Successfully connected!");
-		
 			}
 			return mycon;
 		}catch(Exception ex) {

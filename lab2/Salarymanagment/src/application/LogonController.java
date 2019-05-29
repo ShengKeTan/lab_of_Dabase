@@ -17,6 +17,9 @@ import javafx.scene.paint.Color;
 public class LogonController implements Initializable{
 	
 	static int getusrid;
+	static String getpname;
+	static String getename;
+	static String getdname;
 	
 	@FXML
 	private TextField usrname, password;
@@ -67,6 +70,7 @@ public class LogonController implements Initializable{
 			note.setText("");
 			usrname.clear();
 			password.clear();
+			get_auth();
 			if(auth) Main.setAdminUI();
 			else Main.setUsrUI();
 		}
@@ -81,6 +85,42 @@ public class LogonController implements Initializable{
 			e1.printStackTrace();
 		}
 	}
+	
+	private void get_auth() {
+		//connect to mysql
+		Con2mysql con = new Con2mysql();
+		Connection mycon = con.connect2mysql();
+		//get info
+		PreparedStatement pStatement = null;
+		ResultSet rs = null;
+		String sql = null;
+		try {
+			sql = "select post.pname, employee.ename, department.dname from post, employee, department"
+				+ " where employee.pid=post.pid"
+				+ " and department.did=employee.did"
+				+ " and employee.eid=?";
+			pStatement = (PreparedStatement)mycon.prepareStatement(sql);
+			pStatement.setInt(1, LogonController.getusrid);
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			rs = pStatement.executeQuery();
+			while(rs.next()) {
+				getpname = rs.getString("post.pname");
+				getename = rs.getString("employee.ename");
+				getdname = rs.getString("department.dname");
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			mycon.close();
+		}catch(SQLException e1) {
+			e1.printStackTrace();
+		}
+	}
+	
 	@FXML
 	private void on_logon_click() {
 		if(usrname.getText().equals("")) {
