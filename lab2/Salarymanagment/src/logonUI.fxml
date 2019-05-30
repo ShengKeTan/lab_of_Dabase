@@ -22,6 +22,11 @@
                   <Image url="@../image/timg.jpg" />
                </image></ImageView>
             <Label fx:id="note" layoutX="262.0" layoutY="266.0" />
+            <ImageView fitHeight="48.0" fitWidth="239.0" layoutX="226.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/title.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

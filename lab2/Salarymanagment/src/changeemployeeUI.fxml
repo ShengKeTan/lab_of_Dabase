@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ChangempController">
+   <children>
+      <AnchorPane layoutX="-216.0" layoutY="-188.0" prefHeight="450.0" prefWidth="528.0">
+         <children>
+            <TextField fx:id="noweid" layoutX="258.0" layoutY="202.0" prefHeight="27.0" prefWidth="80.0" />
+            <Label layoutX="226.0" layoutY="207.0" text="编号" />
+            <TextField fx:id="nowename" layoutX="258.0" layoutY="235.0" prefHeight="27.0" prefWidth="80.0" />
+            <Label layoutX="226.0" layoutY="240.0" text="姓名" />
+            <TextField fx:id="nowdname" layoutX="258.0" layoutY="270.0" prefHeight="27.0" prefWidth="80.0" />
+            <TextField fx:id="nowpname" layoutX="258.0" layoutY="304.0" prefHeight="27.0" prefWidth="80.0" />
+            <TextField fx:id="nowsex" layoutX="258.0" layoutY="339.0" prefHeight="27.0" prefWidth="80.0" />
+            <TextField fx:id="nowage" layoutX="258.0" layoutY="373.0" prefHeight="27.0" prefWidth="80.0" />
+            <Label layoutX="226.0" layoutY="275.0" text="部门" />
+            <Label layoutX="226.0" layoutY="309.0" text="职务" />
+            <Label layoutX="226.0" layoutY="344.0" text="性别" />
+            <Label layoutX="226.0" layoutY="378.0" text="年龄" />
+            <Button layoutX="258.0" layoutY="409.0" mnemonicParsing="false" onAction="#on_ok_click" prefHeight="27.0" prefWidth="80.0" text="确定" />
+            <Button fx:id="back" layoutX="411.0" layoutY="409.0" mnemonicParsing="false" onAction="#on_back_click" prefHeight="27.0" prefWidth="80.0" text="返回" />
+            <TextField fx:id="neweid" layoutX="411.0" layoutY="202.0" prefHeight="27.0" prefWidth="80.0" promptText="输入编号" />
+            <TextField fx:id="newename" layoutX="411.0" layoutY="235.0" prefHeight="27.0" prefWidth="80.0" promptText="输入姓名" />
+            <ChoiceBox fx:id="dchoice" layoutX="411.0" layoutY="270.0" prefHeight="27.0" prefWidth="80.0" />
+            <ChoiceBox fx:id="pchoice" layoutX="411.0" layoutY="304.0" prefHeight="27.0" prefWidth="80.0" />
+            <ChoiceBox fx:id="schoice" layoutX="411.0" layoutY="339.0" prefHeight="27.0" prefWidth="80.0" />
+            <TextField fx:id="newage" layoutX="411.0" layoutY="373.0" prefHeight="27.0" prefWidth="80.0" promptText="输入年龄" />
+            <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="347.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/raw.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

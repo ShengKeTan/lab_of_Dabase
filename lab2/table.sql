@@ -40,7 +40,7 @@ CREATE TABLE ch_eck
      `noduty` BOOLEAN DEFAULT 0,
      `rest` BOOLEAN DEFAULT 0,
      PRIMARY KEY (eid,cyear,cmonth,cday),
-     FOREIGN KEY (eid) REFERENCES employee(eid)
+     FOREIGN KEY (eid) REFERENCES employee(eid) ON DELETE CASCADE ON UPDATE CASCADE
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS allowance;
@@ -53,7 +53,7 @@ CREATE TABLE allowance
      _type INT,
      extra DECIMAL(10,2),
      PRIMARY KEY (eid,ayear,amonth,aday),
-     FOREIGN KEY (eid) REFERENCES employee(eid)
+     FOREIGN KEY (eid) REFERENCES employee(eid) ON DELETE CASCADE ON UPDATE CASCADE
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS salary;
@@ -73,7 +73,7 @@ CREATE TABLE salary
      PRIMARY KEY (said),
      FOREIGN KEY (did) REFERENCES department(did),
      FOREIGN KEY (pid) REFERENCES post(pid),
-     FOREIGN KEY (eid) REFERENCES employee(eid)
+     FOREIGN KEY (eid) REFERENCES employee(eid) ON DELETE CASCADE ON UPDATE CASCADE
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS _usr;
@@ -83,5 +83,5 @@ CREATE TABLE _usr
      pass CHAR(20) NOT NULL,
      authority BOOLEAN DEFAULT 0,
      PRIMARY KEY (usr),
-     FOREIGN KEY (eid) REFERENCES employee(eid)
+     FOREIGN KEY (eid) REFERENCES employee(eid) ON DELETE CASCADE ON UPDATE CASCADE
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
