@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="174.0" prefWidth="397.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ApplyController">
+   <children>
+      <AnchorPane layoutX="-210.0" layoutY="-184.0" prefHeight="383.0" prefWidth="607.0">
+         <children>
+            <TextField layoutX="222.0" layoutY="219.0" prefHeight="27.0" prefWidth="75.0" promptText="输入年份" />
+            <TextField layoutX="319.0" layoutY="219.0" prefHeight="27.0" prefWidth="75.0" promptText="输入月份" />
+            <TextField layoutX="417.0" layoutY="219.0" prefHeight="27.0" prefWidth="75.0" promptText="输入日期" />
+            <ChoiceBox fx:id="bhour" layoutX="518.0" layoutY="219.0" prefHeight="27.0" prefWidth="61.0" />
+            <TextField layoutX="222.0" layoutY="288.0" prefHeight="27.0" prefWidth="75.0" promptText="输入年份" />
+            <TextField layoutX="319.0" layoutY="288.0" prefHeight="27.0" prefWidth="75.0" promptText="输入月份" />
+            <TextField layoutX="417.0" layoutY="288.0" prefHeight="27.0" prefWidth="75.0" promptText="输入日期" />
+            <ChoiceBox fx:id="ehour" layoutX="518.0" layoutY="288.0" prefHeight="27.0" prefWidth="61.0" />
+            <ChoiceBox fx:id="type" layoutX="281.0" layoutY="336.0" prefHeight="27.0" prefWidth="113.0" />
+            <Label layoutX="297.0" layoutY="224.0" text="年" />
+            <Label layoutX="395.0" layoutY="224.0" text="月" />
+            <Label layoutX="492.0" layoutY="224.0" text="日" />
+            <Label layoutX="579.0" layoutY="224.0" text="时" />
+            <Label layoutX="297.0" layoutY="293.0" text="年" />
+            <Label layoutX="401.0" layoutY="293.0" text="月" />
+            <Label layoutX="492.0" layoutY="293.0" text="日" />
+            <Label layoutX="579.0" layoutY="293.0" text="时" />
+            <Button layoutX="518.0" layoutY="336.0" mnemonicParsing="false" onAction="#on_ok_click" prefHeight="27.0" prefWidth="75.0" text="确定" />
+            <Button fx:id="back" layoutX="416.0" layoutY="336.0" mnemonicParsing="false" onAction="#on_back_click" prefHeight="27.0" prefWidth="75.0" text="返回" />
+            <Label layoutX="222.0" layoutY="341.0" text="加班类型" />
+            <Label layoutX="222.0" layoutY="202.0" text="开始时间" />
+            <Label layoutX="226.0" layoutY="271.0" text="截止时间" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

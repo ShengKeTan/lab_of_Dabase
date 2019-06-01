@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="413.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CheckController">
+   <children>
+      <AnchorPane layoutX="-151.0" layoutY="-132.0" prefHeight="486.0" prefWidth="701.0">
+         <children>
+            <SplitPane dividerPositions="0.27348066298342544" layoutX="152.0" layoutY="132.0" orientation="VERTICAL" prefHeight="364.0" prefWidth="550.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <ChoiceBox fx:id="dchoice" layoutX="50.0" layoutY="14.0" prefHeight="27.0" prefWidth="104.0" />
+                        <ChoiceBox fx:id="pchoice" layoutX="204.0" layoutY="14.0" prefHeight="27.0" prefWidth="104.0" />
+                        <ChoiceBox fx:id="schoice" layoutX="357.0" layoutY="14.0" prefHeight="27.0" prefWidth="104.0" />
+                        <TextField fx:id="inputname" layoutX="358.0" layoutY="55.0" prefHeight="27.0" prefWidth="104.0" promptText="输入姓名" />
+                        <DatePicker fx:id="date_begin" layoutX="14.0" layoutY="55.0" prefHeight="27.0" prefWidth="139.0" promptText="起始时间" />
+                        <DatePicker fx:id="date_end" layoutX="169.0" layoutY="55.0" prefHeight="27.0" prefWidth="139.0" promptText="截止时间" />
+                        <Label layoutX="14.0" layoutY="19.0" text="部门" />
+                        <Label layoutX="169.0" layoutY="19.0" text="职务" />
+                        <Label layoutX="323.0" layoutY="19.0" text="状态" />
+                        <Button layoutX="475.0" layoutY="36.0" mnemonicParsing="false" onAction="#on_checkseek_click" prefHeight="27.0" prefWidth="62.0" text="查询" />
+                        <Label layoutX="323.0" layoutY="60.0" text="姓名" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <TableView fx:id="check" prefHeight="259.0" prefWidth="548.0">
+                          <columns>
+                            <TableColumn fx:id="a1" prefWidth="113.0" text="姓名" />
+                            <TableColumn fx:id="a2" prefWidth="97.0" text="部门" />
+                              <TableColumn fx:id="a3" prefWidth="245.0" text="时间" />
+                              <TableColumn fx:id="a4" prefWidth="92.0" text="状态" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+      </AnchorPane>
+      <Button layoutX="11.0" layoutY="373.0" mnemonicParsing="false" onAction="#on_late_click" prefHeight="27.0" prefWidth="55.0" text="迟到" />
+      <Button layoutX="81.0" layoutY="373.0" mnemonicParsing="false" onAction="#on_rest_click" prefHeight="27.0" prefWidth="55.0" text="请假" />
+      <Button layoutX="151.0" layoutY="373.0" mnemonicParsing="false" onAction="#on_duty_click" prefHeight="27.0" prefWidth="55.0" text="出勤" />
+      <Button layoutX="220.0" layoutY="373.0" mnemonicParsing="false" onAction="#on_delete_click" prefHeight="27.0" prefWidth="55.0" text="删除" />
+      <Button fx:id="back" layoutX="474.0" layoutY="373.0" mnemonicParsing="false" onAction="#on_back_click" prefHeight="27.0" prefWidth="62.0" text="返回" />
+   </children>
+</AnchorPane>

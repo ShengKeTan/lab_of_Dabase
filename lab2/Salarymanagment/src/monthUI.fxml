@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="489.0" prefWidth="684.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MonthController">
+   <children>
+      <SplitPane dividerPositions="0.16740088105726872" layoutX="-1.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="456.0" prefWidth="685.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Label fx:id="note" layoutX="244.0" layoutY="6.0" text="工资生成">
+                     <font>
+                        <Font size="48.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="391.0" prefWidth="611.0">
+               <children>
+                  <SplitPane dividerPositions="0.12631578947368421" layoutX="-1.0" layoutY="-8.0" orientation="VERTICAL" prefHeight="382.0" prefWidth="687.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="123.0" prefWidth="612.0">
+                           <children>
+                              <ChoiceBox fx:id="dchoice" layoutX="46.0" layoutY="11.0" prefHeight="27.0" prefWidth="112.0" />
+                              <ChoiceBox fx:id="pchoice" layoutX="229.0" layoutY="11.0" prefHeight="27.0" prefWidth="112.0" />
+                              <TextField fx:id="inputname" layoutX="412.0" layoutY="11.0" prefHeight="27.0" prefWidth="103.0" />
+                              <Button layoutX="586.0" layoutY="11.0" mnemonicParsing="false" onAction="#test" prefHeight="27.0" prefWidth="79.0" text="查询" />
+                              <Label layoutX="13.0" layoutY="14.0" text="部门" />
+                              <Label layoutX="198.0" layoutY="16.0" text="职务" />
+                              <Label layoutX="381.0" layoutY="16.0" text="姓名" />
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="612.0">
+                           <children>
+                              <TableView fx:id="monthtable" layoutX="-2.0" layoutY="-2.0" prefHeight="334.0" prefWidth="686.0">
+                                <columns>
+                                  <TableColumn fx:id="eid" prefWidth="63.41607332229614" text="编号" />
+                                  <TableColumn fx:id="ename" prefWidth="66.66571044921875" text="姓名" />
+                                    <TableColumn fx:id="dname" prefWidth="66.33427429199219" text="部门" />
+                                    <TableColumn fx:id="pname" prefWidth="68.33139038085938" text="职务" />
+                                    <TableColumn fx:id="rest" prefWidth="64.91537475585938" text="请假" />
+                                    <TableColumn fx:id="duty" prefWidth="82.500732421875" text="考勤/缺勤" />
+                                    <TableColumn fx:id="allowance" prefWidth="68.499267578125" text="津贴" />
+                                    <TableColumn fx:id="bpay" prefWidth="63.665679931640625" text="基本工资" />
+                                    <TableColumn fx:id="salary" prefWidth="66.41748046875" text="总工资" />
+                                    <TableColumn fx:id="time" prefWidth="80.58245849609375" text="时间" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <Button layoutX="46.0" layoutY="457.0" mnemonicParsing="false" onAction="#on_ok_click" prefHeight="27.0" prefWidth="76.0" text="确定生成" />
+      <Button fx:id="back" layoutX="589.0" layoutY="457.0" mnemonicParsing="false" onAction="#on_back_click" prefHeight="27.0" prefWidth="76.0" text="返回" />
+   </children>
+</AnchorPane>

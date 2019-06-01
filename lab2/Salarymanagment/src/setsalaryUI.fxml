@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SetsalaryController">
+   <children>
+      <AnchorPane layoutX="-166.0" layoutY="-155.0" prefHeight="297.0" prefWidth="528.0">
+         <children>
+            <ChoiceBox fx:id="pchoice" layoutX="220.0" layoutY="172.0" prefHeight="27.0" prefWidth="96.0" />
+            <Label layoutX="173.0" layoutY="177.0" text="职务名" />
+            <TextField fx:id="salary" layoutX="394.0" layoutY="172.0" prefHeight="27.0" prefWidth="96.0" />
+            <Label layoutX="334.0" layoutY="177.0" text="基本工资" />
+            <Button layoutX="227.0" layoutY="253.0" mnemonicParsing="false" onAction="#on_ok_click" prefHeight="27.0" prefWidth="83.0" text="确定" />
+            <Button fx:id="back" layoutX="401.0" layoutY="253.0" mnemonicParsing="false" onAction="#on_back_click" prefHeight="27.0" prefWidth="83.0" text="返回" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

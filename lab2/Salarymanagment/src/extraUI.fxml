@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="377.0" prefWidth="538.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ExtraController">
+   <children>
+      <AnchorPane layoutX="-142.0" layoutY="-155.0" prefHeight="493.0" prefWidth="646.0">
+         <children>
+            <SplitPane dividerPositions="0.3086053412462908" layoutX="141.0" layoutY="154.0" orientation="VERTICAL" prefHeight="339.0" prefWidth="538.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="96.0" prefWidth="536.0">
+                     <children>
+                        <ChoiceBox fx:id="dchoice" layoutX="53.0" layoutY="14.0" prefHeight="27.0" prefWidth="106.0" />
+                        <ChoiceBox fx:id="pchoice" layoutX="233.0" layoutY="14.0" prefHeight="27.0" prefWidth="106.0" />
+                        <DatePicker fx:id="date_begin" layoutX="142.0" layoutY="59.0" prefHeight="27.0" prefWidth="133.0" promptText="起始时间" />
+                        <TextField fx:id="inputname" layoutX="15.0" layoutY="59.0" prefHeight="27.0" prefWidth="106.0" promptText="输入姓名" />
+                        <DatePicker fx:id="date_end" layoutX="293.0" layoutY="59.0" prefHeight="27.0" prefWidth="133.0" promptText="截止时间" />
+                        <Button layoutX="443.0" layoutY="59.0" mnemonicParsing="false" onAction="#on_search_click" prefHeight="27.0" prefWidth="67.0" text="查询" />
+                        <ChoiceBox fx:id="schoice" layoutX="404.0" layoutY="14.0" prefHeight="27.0" prefWidth="106.0" />
+                        <Label layoutX="15.0" layoutY="19.0" text="部门" />
+                        <Label layoutX="196.0" layoutY="19.0" text="职务" />
+                        <Label layoutX="367.0" layoutY="19.0" text="状态" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="239.0" prefWidth="536.0">
+                     <children>
+                        <TableView fx:id="worktable" prefHeight="229.0" prefWidth="538.0">
+                          <columns>
+                            <TableColumn fx:id="w1" prefWidth="64.0" text="姓名" />
+                            <TableColumn fx:id="w2" prefWidth="116.0" text="起始时间" />
+                              <TableColumn fx:id="w3" prefWidth="108.0" text="截止时间" />
+                              <TableColumn fx:id="w4" prefWidth="63.0" text="加班类型" />
+                              <TableColumn fx:id="w5" prefWidth="65.0" text="加班时间" />
+                              <TableColumn fx:id="w6" prefWidth="74.0" text="津贴金额" />
+                              <TableColumn fx:id="w7" prefWidth="47.0" text="状态" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+      </AnchorPane>
+      <Button layoutX="14.0" layoutY="343.0" mnemonicParsing="false" onAction="#on_sure_click" prefHeight="27.0" prefWidth="67.0" text="通过" />
+      <Button layoutX="94.0" layoutY="343.0" mnemonicParsing="false" onAction="#on_failed_click" prefHeight="27.0" prefWidth="67.0" text="否决" />
+      <Button fx:id="back" layoutX="451.0" layoutY="343.0" mnemonicParsing="false" onAction="#on_back_click" prefHeight="27.0" prefWidth="67.0" text="返回" />
+   </children>
+</AnchorPane>

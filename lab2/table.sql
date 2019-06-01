@@ -43,16 +43,29 @@ CREATE TABLE ch_eck
      FOREIGN KEY (eid) REFERENCES employee(eid) ON DELETE CASCADE ON UPDATE CASCADE
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS work_type;
+CREATE TABLE work_type
+    (wid INT,
+     wname CHAR(10),
+     pay DECIMAL(10,2),
+     PRIMARY KEY (wid)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 DROP TABLE IF EXISTS allowance;
 CREATE TABLE allowance
     (eid INT,
      ayear INT,
      amonth INT,
      aday INT,
+     begin_time INT,
+     end_time INT,
      _hours INT,
-     _type INT,
+     wid INT,
      extra DECIMAL(10,2),
-     PRIMARY KEY (eid,ayear,amonth,aday),
+     state INT,
+     nowtime TIMESTAMP,
+     PRIMARY KEY (eid,ayear,amonth,aday,begin_time,end_time),
+     FOREIGN KEY (wid) REFERENCES work_type(wid) ON UPDATE CASCADE,
      FOREIGN KEY (eid) REFERENCES employee(eid) ON DELETE CASCADE ON UPDATE CASCADE
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

@@ -94,6 +94,38 @@
                         </AnchorPane>
                      </content>
                   </Tab>
+                  <Tab text="加班管理">
+                     <content>
+                        <SplitPane dividerPositions="0.15625" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                 <children>
+                                    <DatePicker fx:id="second_begin" layoutX="14.0" layoutY="17.0" prefHeight="27.0" prefWidth="139.0" promptText="起始日期" />
+                                    <DatePicker fx:id="second_end" layoutX="169.0" layoutY="17.0" prefHeight="27.0" prefWidth="139.0" promptText="截止日期" />
+                                    <Button layoutX="428.0" layoutY="17.0" mnemonicParsing="false" onAction="#show_work_date" prefHeight="27.0" prefWidth="67.0" text="查询" />
+                                    <Button layoutX="510.0" layoutY="17.0" mnemonicParsing="false" onAction="#on_apply_click" prefHeight="27.0" prefWidth="64.0" text="申请" />
+                                    <ChoiceBox fx:id="statechoice" layoutX="321.0" layoutY="17.0" prefHeight="27.0" prefWidth="92.0" />
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                 <children>
+                                    <TableView fx:id="work" prefHeight="320.0" prefWidth="588.0">
+                                      <columns>
+                                        <TableColumn fx:id="w1" prefWidth="70.0" text="姓名" />
+                                        <TableColumn fx:id="w2" prefWidth="125.0" text="开始时间" />
+                                          <TableColumn fx:id="w3" prefWidth="125.0" text="截止时间" />
+                                          <TableColumn fx:id="w4" prefWidth="72.0" text="加班类型" />
+                                          <TableColumn fx:id="w5" prefWidth="60.0" text="加班时长" />
+                                          <TableColumn fx:id="w6" prefWidth="73.0" text="津贴金额" />
+                                          <TableColumn fx:id="w7" prefWidth="62.0" text="状态" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </content>
+                  </Tab>
               </tabs>
             </TabPane>
          </children></AnchorPane>

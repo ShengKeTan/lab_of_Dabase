@@ -8,11 +8,15 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 public class LogonController implements Initializable{
 	
@@ -20,6 +24,16 @@ public class LogonController implements Initializable{
 	static String getpname;
 	static String getename;
 	static String getdname;
+	
+	//舞台
+	static Stage adminstage = null;
+	static Stage usrstage = null;
+	//界面根结点
+	private Parent admin_root = null;
+	private Parent usr_root = null;
+	//界面窗口
+	private static Scene admin_scene = null;
+	private static Scene usr_scene = null;
 	
 	@FXML
 	private TextField usrname, password;
@@ -34,6 +48,45 @@ public class LogonController implements Initializable{
 		// TODO Auto-generated method stub
 		note.setTextFill(Color.web("#00763a"));
 	}
+	
+	private void usr_logon() {
+		Stage stage = (Stage)logon.getScene().getWindow();
+	    stage.close();
+		try {
+			//set root
+			usr_root = FXMLLoader.load(getClass().getClassLoader().getResource("usrUI.fxml"));
+			//set scene
+			usr_scene = new Scene(usr_root);
+			//set stage
+			usrstage = new Stage();
+			//change scene
+			setUsrUI();
+			//show stage
+			usrstage.show();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	private void admin_logon() {
+		Stage stage = (Stage)logon.getScene().getWindow();
+	    stage.close();
+		try {
+			//set root
+			admin_root = FXMLLoader.load(getClass().getClassLoader().getResource("adminUI.fxml"));
+			//set scene
+			admin_scene = new Scene(admin_root);
+			//set stage
+			adminstage = new Stage();
+			//change scene
+			setAdminUI();
+			//show stage
+			adminstage.show();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 	@FXML
 	private void logon() {
 		//null usrname flags
@@ -71,8 +124,8 @@ public class LogonController implements Initializable{
 			usrname.clear();
 			password.clear();
 			get_auth();
-			if(auth) Main.setAdminUI();
-			else Main.setUsrUI();
+			if(auth) admin_logon();
+			else usr_logon();
 		}
 		else {
 			if(flag == 0) note.setText("用户不存在！");
@@ -135,5 +188,14 @@ public class LogonController implements Initializable{
 		}
 		//check usr name and password
 		logon();
+	}
+	
+	public static void  setUsrUI() {
+		usrstage.setTitle("普通用户");
+		usrstage.setScene(usr_scene);
+	}
+	public static void setAdminUI() {
+		adminstage.setTitle("管理员用户");
+		adminstage.setScene(admin_scene);
 	}
 }

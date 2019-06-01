@@ -98,6 +98,28 @@ public class EmployeeController implements Initializable{
 						}
 						}
 				});
+		//监听部门选项
+		dchoice.getSelectionModel().selectedIndexProperty().addListener(new 
+				ChangeListener<Number>() {
+			@Override
+			public void changed(ObservableValue<? extends Number>observable, Number oldValue, Number
+							newValue) {
+							System.out.println(newValue);
+							System.out.println(dbox.get(newValue.intValue()));
+							System.out.println(LogonController.getpname);
+						}
+				});
+		//监听职务选项
+		pchoice.getSelectionModel().selectedIndexProperty().addListener(new 
+				ChangeListener<Number>() {
+			@Override
+			public void changed(ObservableValue<? extends Number>observable, Number oldValue, Number
+							newValue) {
+							System.out.println(newValue);
+							System.out.println(pbox.get(newValue.intValue()));
+							System.out.println(LogonController.getpname);
+						}
+				});
 		
 	}
 	@FXML

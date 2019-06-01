@@ -17,9 +17,13 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -30,20 +34,32 @@ import javafx.scene.control.TextField;
 
 public class UsrController implements Initializable{
 	
+	//舞台
+	static Stage applystage = null;
+	//界面根结点
+	private Parent apply_root = null;
+	//界面窗口
+	private static Scene apply_scene = null;
+	
 	String geteid = null;
 	String gettime = null;
 	static int rate;
 	
 	private ObservableList<Usrdata> usrdata = FXCollections.observableArrayList();
 	private ObservableList<Checkdate> checkdate = FXCollections.observableArrayList();
+	private ObservableList<Workdate> workdate = FXCollections.observableArrayList();
 	@FXML
 	private TableView<Usrdata> data;
 	@FXML
 	private TableView<Checkdate> check;
 	@FXML
+	private TableView<Workdate> work;
+	@FXML
 	private TableColumn<Usrdata,String> time, name, department, post, noduty, allowance, total;
 	@FXML
 	private TableColumn<Checkdate,String> a1, a2, a3, a4;
+	@FXML
+	private TableColumn<Workdate, String> w1, w2, w3, w4, w5, w6, w7;
 	
 	@FXML
 	private Button seek, quit;
@@ -57,11 +73,14 @@ public class UsrController implements Initializable{
 	private DatePicker date_end,date_begin;
 	@FXML
 	private DatePicker first_begin, first_end;
+	@FXML
+	private DatePicker second_begin, second_end;
 	
 	private ObservableList<String> pbox = FXCollections.observableArrayList();
 	private ObservableList<String> dbox = FXCollections.observableArrayList();
+	private ObservableList<String> stbox = FXCollections.observableArrayList();
 	@FXML
-	private ChoiceBox<String> pchoice, dchoice;
+	private ChoiceBox<String> pchoice, dchoice, statechoice;
 	
 	private ObservableList<String> sbox = FXCollections.observableArrayList();
 	@FXML
@@ -79,6 +98,9 @@ public class UsrController implements Initializable{
 		sbox.addAll("出勤","请假");
 		state.setItems(sbox);
 		state.setValue("出勤");
+		stbox.addAll("已通过","待审核","未通过","ALL");
+		statechoice.setItems(stbox);
+		statechoice.setValue("ALL");
 		//set dbox
 		init_choicebox();
 		//init time
@@ -86,8 +108,11 @@ public class UsrController implements Initializable{
 		date_begin.setValue(LocalDate.now());
 		first_begin.setValue(LocalDate.now());
 		first_end.setValue(LocalDate.now()); 
+		second_begin.setValue(LocalDate.now());
+		second_end.setValue(LocalDate.now());
 		//set note
 		note.setText("今日尚未签到");
+		namelabel.setText(LogonController.getename);
 		init_check_state();
 		
 		time.setCellValueFactory(cellDate -> new 
@@ -111,6 +136,20 @@ public class UsrController implements Initializable{
 		a3.setCellValueFactory(cellDate -> new 
 				SimpleStringProperty(cellDate.getValue().getTime()));
 		a4.setCellValueFactory(cellDate -> new 
+				SimpleStringProperty(cellDate.getValue().getState()));
+		w1.setCellValueFactory(cellDate -> new 
+				SimpleStringProperty(cellDate.getValue().getName()));
+		w2.setCellValueFactory(cellDate -> new 
+				SimpleStringProperty(cellDate.getValue().getBtime()));
+		w3.setCellValueFactory(cellDate -> new 
+				SimpleStringProperty(cellDate.getValue().getEtime()));
+		w4.setCellValueFactory(cellDate -> new 
+				SimpleStringProperty(cellDate.getValue().getType()));
+		w5.setCellValueFactory(cellDate -> new 
+				SimpleStringProperty(cellDate.getValue().getTimes()));
+		w6.setCellValueFactory(cellDate -> new 
+				SimpleStringProperty(cellDate.getValue().getExtra()));
+		w7.setCellValueFactory(cellDate -> new 
 				SimpleStringProperty(cellDate.getValue().getState()));
 		//对日期选择时间进行监听
 		date_begin.setOnAction(event->{
@@ -337,6 +376,7 @@ public class UsrController implements Initializable{
 		}catch(SQLException e1) {
 			e1.printStackTrace();
 		}
+		init_check_state();
 	}
 	@FXML
 	private void on_checkseek_click() {
@@ -399,7 +439,6 @@ public class UsrController implements Initializable{
 	@FXML
 	private void change_view() {
 		System.out.println(LogonController.getpname);
-		namelabel.setText(LogonController.getename);
 		init_check_state();
 		//设置部门、职务选项默值
 		dchoice.setValue("ALL");
@@ -584,10 +623,123 @@ public class UsrController implements Initializable{
 		data.setItems(usrdata);
 	}
 	
+	private String type_make() {
+		String sql = " ";
+		if(statechoice.getValue().toString().trim().equals("已通过")) {
+			sql = " and allowance.state=" + 1;
+		}
+		else if(statechoice.getValue().toString().trim().equals("待审核")) {
+			sql = " and allowance.state=" + 0;
+		}
+		else if(statechoice.getValue().toString().trim().equals("未通过")) {
+		    sql = " and allowance.state=" + 2;
+		}
+		return sql;
+	}
+	
+	@FXML
+	private void show_work_date() {
+		workdate.clear();
+		//connect to mysql
+		Con2mysql con = new Con2mysql();
+		Connection mycon = con.connect2mysql();
+		//get info
+		PreparedStatement pStatement = null;
+		ResultSet rs = null;
+		String sql = null;
+		
+		String time_begin,time_end;
+		time_begin = second_begin.getValue().toString();
+		time_end = second_end.getValue().toString();
+		time_begin += " 00:00:00";
+		time_end += " 23:59:59";
+		
+		try {
+			String temp = null;
+			String gettype = type_make();
+			temp = "select employee.ename, ayear, amonth, aday, begin_time, end_time,"
+			   + " _hours, work_type.wname, extra, state"
+			   + " from employee, work_type, allowance"
+			   + " where employee.eid=allowance.eid"
+			   + " and work_type.wid=allowance.wid"
+			   + " and nowtime>='%1$s'"
+			   + " and nowtime<='%2$s'"
+			   + " and allowance.eid=%3$d"
+			   + gettype;
+			sql = String.format(temp,time_begin,time_end,LogonController.getusrid);
+			pStatement = (PreparedStatement)mycon.prepareStatement(sql);
+			System.out.println(sql);
+		}catch(SQLException e1) {
+			e1.printStackTrace();
+		}
+		try {
+			rs = pStatement.executeQuery();
+			String wname = null;
+			int wyear, wmonth, wday, wbtime, wetime, wtimes;
+			String wtype = null;
+			String wstate = null;
+			String wextra = null;
+			while(rs.next()) {
+				wname = rs.getString("employee.ename");
+				wyear = rs.getInt("ayear");
+				wmonth = rs.getInt("amonth");
+				wday = rs.getInt("aday");
+				wbtime = rs.getInt("begin_time");
+				wetime = rs.getInt("end_time");
+				wtype = rs.getString("work_type.wname");
+				wtimes = rs.getInt("_hours");
+				wextra = rs.getBigDecimal("extra").toString();
+				if(rs.getInt("state")==0) {
+					wstate = "待审核";
+				}
+				if(rs.getInt("state")==1) {
+					wstate = "已通过";
+				}
+				if(rs.getInt("state")==2) {
+					wstate = "未通过";
+				}
+				String bt = wyear + "/" + wmonth + "/" + wday + "/";
+				System.out.println(bt);
+				workdate.add(new Workdate(wname,bt+wbtime+":00",bt+wetime+":00",wtype,wtimes+"",wextra,wstate));
+			}
+		}catch(SQLException e1) {
+			e1.printStackTrace();
+		}
+		//close connet
+		try {
+			mycon.close();
+		}catch(SQLException e1) {
+			e1.printStackTrace();
+		}
+		work.setItems(workdate);
+	}
+	
+	@FXML
+	private void on_apply_click() {
+		try {
+		//set root
+		apply_root = FXMLLoader.load(getClass().getClassLoader().getResource("applyUI.fxml"));
+		//set scene
+		apply_scene = new Scene(apply_root);
+		//set stage
+		applystage = new Stage();
+		setApplyUI(); //first scene chose
+		applystage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void setApplyUI(){
+		applystage.setTitle("apply scene");
+		applystage.setScene(apply_scene);
+	}
+	
 	@FXML
 	private void on_quit_click() {
 		usrdata.clear();
-		Main.setLoginUI();
+		Stage stage = (Stage)quit.getScene().getWindow();
+	    stage.close();
 	}
 	
 

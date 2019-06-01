@@ -25,16 +25,25 @@ VALUES (00001,00001,00001,'蔡徐坤',18,'男'),
 (00005,00002,00002,'测试',99,'男');
 
 /**insert into ch_eck
-*（cid，eid，cyear，cmonth，cday，ctime, ate，leave，duty，noduty，rest）
+*（eid，cyear，cmonth，cday，ctime, ate，leave，duty，noduty，rest）
 */
 INSERT INTO ch_eck
 VALUES (00001,2019,5,21,20190521111111,0,0,1,0,0);
 
+/**insert into work_type
+*(wid，wname，pay)
+*/
+INSERT INTO work_type
+VALUES (00001,'工作日',50),
+(00002,'周末',75),
+(00003,'节日',100);
+
 /**insert into allowance
-*（eid，ayear，amonth，aday，_hours，_type，extra）
+*（eid，ayear，amonth，aday，begin_time，end_time，_hours，wid，extra，state，nowtime）
 */
 INSERT INTO allowance
-VALUES (00001,2019,5,21,3,50,150);
+VALUES (00001,2019,5,21,19,21,3,00001,150,0,20190521111111);
+
 
 /**insert into _usr
 *（eid，usr，pass，authority）
