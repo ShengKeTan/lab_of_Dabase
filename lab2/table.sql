@@ -71,19 +71,18 @@ CREATE TABLE allowance
 
 DROP TABLE IF EXISTS salary;
 CREATE TABLE salary
-    (said INT,
-     eid INT,
+    (eid INT,
      did INT,
      pid INT,
      mtimes INT,
      ctimes INT,
+     latetimes INT,
      bpay DECIMAL(10,2),
      extra DECIMAL(10,2),
      pay DECIMAL(10,2),
      syear INT,
      smonth INT,
-     sday INT,
-     PRIMARY KEY (said),
+     PRIMARY KEY (eid,syear,smonth),
      FOREIGN KEY (did) REFERENCES department(did),
      FOREIGN KEY (pid) REFERENCES post(pid),
      FOREIGN KEY (eid) REFERENCES employee(eid) ON DELETE CASCADE ON UPDATE CASCADE

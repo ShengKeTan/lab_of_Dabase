@@ -315,6 +315,7 @@ public class UsrController implements Initializable{
 		int day = cal.get(Calendar.DATE);
         int month = cal.get(Calendar.MONTH) + 1;
         int year = cal.get(Calendar.YEAR);
+        int hours = cal.get(Calendar.HOUR_OF_DAY);
         
         boolean leave = false;
         boolean duty = false;
@@ -329,7 +330,7 @@ public class UsrController implements Initializable{
         	duty = false;
         	rest = true;
         }
-        if( Calendar.HOUR_OF_DAY > 8) {
+        if( hours > 8) {
         	late = true;
         	duty = false;
         }
@@ -675,7 +676,9 @@ public class UsrController implements Initializable{
 		try {
 			rs = pStatement.executeQuery();
 			String wname = null;
-			int wyear, wmonth, wday, wbtime, wetime, wtimes;
+			int wyear;
+			int wmonth, wday;
+			int wbtime, wetime, wtimes;
 			String wtype = null;
 			String wstate = null;
 			String wextra = null;
@@ -698,7 +701,7 @@ public class UsrController implements Initializable{
 				if(rs.getInt("state")==2) {
 					wstate = "未通过";
 				}
-				String bt = wyear + "/" + wmonth + "/" + wday + "/";
+				String bt = wyear + "-" + wmonth + "-" + wday + "-";
 				System.out.println(bt);
 				workdate.add(new Workdate(wname,bt+wbtime+":00",bt+wetime+":00",wtype,wtimes+"",wextra,wstate));
 			}

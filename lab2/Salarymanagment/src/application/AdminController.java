@@ -8,6 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
@@ -22,23 +24,65 @@ public class AdminController implements Initializable{
 	static Stage setmonthstage = null;
 	static Stage extrastage = null;
 	static Stage checkstage = null;
+	static Stage salarystage = null;
+	static Stage awardsstage = null;
 	//界面根结点
 	private Parent employee_root = null;
 	private Parent setsalary_root = null;
 	private Parent setmonth_root = null;
 	private Parent extra_root = null;
 	private Parent check_root = null;
+	private Parent salary_root = null;
+	private Parent awards_root = null;
 	//界面窗口
 	private static Scene employee_scene = null;
 	private static Scene setsalary_scene = null;
 	private static Scene setmonth_scene = null;
 	private static Scene extra_scene = null;
 	private static Scene check_scene = null;
+	private static Scene salary_scene = null;
+	private static Scene awards_scene = null;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@FXML
+	private void on_awards_click() {
+		try {
+			//set root
+			awards_root = FXMLLoader.load(getClass().getClassLoader().getResource("awardsUI.fxml"));
+			//set scene
+			awards_scene = new Scene(awards_root);
+			//set stage
+			awardsstage = new Stage();
+			//change scene
+			setAwardsUI();
+			//show stage
+			awardsstage.show();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
+	private void on_salary_click() {
+		try {
+			//set root
+			salary_root = FXMLLoader.load(getClass().getClassLoader().getResource("SalaryUI.fxml"));
+			//set scene
+			salary_scene = new Scene(salary_root);
+			//set stage
+			salarystage = new Stage();
+			//change scene
+			setNewsalaryUI();
+			//show stage
+			salarystage.show();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@FXML
@@ -130,9 +174,29 @@ public class AdminController implements Initializable{
 			e.printStackTrace();
 		}
 	}
+	
+	
+	@FXML
+	private void on_about_click() {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Information Dialog");
+		alert.setHeaderText("作者信息");
+		alert.setContentText("CS1602谭胜克");
+		alert.showAndWait();
+	}
+	
+	public static void setAwardsUI() {
+		awardsstage.setTitle("awards");
+		awardsstage.setScene(awards_scene);
+	}
+	
 	public static void setSalaryUI() {
 		setsalarystage.setTitle("set salary");
 		setsalarystage.setScene(setsalary_scene);
+	}
+	public static void setNewsalaryUI() {
+		salarystage.setTitle("set salary");
+		salarystage.setScene(salary_scene);
 	}
 	
 	public static void  setEmploinfoUI() {

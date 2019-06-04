@@ -17,6 +17,8 @@
                         <Font size="48.0" />
                      </font>
                   </Label>
+                  <Label fx:id="note" layoutX="562.0" layoutY="50.0" />
+                  <Label fx:id="set" layoutX="14.0" layoutY="50.0" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="391.0" prefWidth="611.0">
@@ -42,7 +44,7 @@
                                   <TableColumn fx:id="ename" prefWidth="66.66571044921875" text="姓名" />
                                     <TableColumn fx:id="dname" prefWidth="66.33427429199219" text="部门" />
                                     <TableColumn fx:id="pname" prefWidth="68.33139038085938" text="职务" />
-                                    <TableColumn fx:id="rest" prefWidth="64.91537475585938" text="请假" />
+                                    <TableColumn fx:id="rest" prefWidth="64.91537475585938" text="迟到" />
                                     <TableColumn fx:id="duty" prefWidth="82.500732421875" text="考勤/缺勤" />
                                     <TableColumn fx:id="allowance" prefWidth="68.499267578125" text="津贴" />
                                     <TableColumn fx:id="bpay" prefWidth="63.665679931640625" text="基本工资" />
@@ -58,7 +60,8 @@
             </AnchorPane>
         </items>
       </SplitPane>
-      <Button layoutX="46.0" layoutY="457.0" mnemonicParsing="false" onAction="#on_ok_click" prefHeight="27.0" prefWidth="76.0" text="确定生成" />
+      <Button layoutX="14.0" layoutY="457.0" mnemonicParsing="false" onAction="#on_ok_click" prefHeight="27.0" prefWidth="76.0" text="确定生成" />
       <Button fx:id="back" layoutX="589.0" layoutY="457.0" mnemonicParsing="false" onAction="#on_back_click" prefHeight="27.0" prefWidth="76.0" text="返回" />
+      <Button layoutX="102.0" layoutY="458.0" mnemonicParsing="false" onAction="#on_update_click" prefHeight="27.0" prefWidth="76.0" text="重新生成" />
    </children>
 </AnchorPane>

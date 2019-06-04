@@ -20,7 +20,7 @@
                 <Menu mnemonicParsing="false" text="工资管理">
                   <items>
                         <MenuItem mnemonicParsing="false" onAction="#on_setsalary_click" text="基本工资设定" />
-                    <MenuItem mnemonicParsing="false" text="工资管理" />
+                    <MenuItem mnemonicParsing="false" onAction="#on_salary_click" text="工资管理" />
                         <MenuItem mnemonicParsing="false" onAction="#on_setmonth_click" text="月工资生成" />
                   </items>
                 </Menu>
@@ -36,15 +36,19 @@
                   </Menu>
                   <Menu mnemonicParsing="false" text="统计管理">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="工资统计" />
-                        <MenuItem mnemonicParsing="false" text="年终奖统计" />
-                        <MenuItem mnemonicParsing="false" text="报表生成" />
+                        <MenuItem mnemonicParsing="false" text="年工资统计" />
+                        <MenuItem mnemonicParsing="false" onAction="#on_awards_click" text="年终奖统计" />
                      </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="用户管理">
                     <items>
                       <MenuItem mnemonicParsing="false" text="账号管理" />
                         <MenuItem mnemonicParsing="false" text="权限设置" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="帮助">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#on_about_click" text="关于" />
                     </items>
                   </Menu>
               </menus>

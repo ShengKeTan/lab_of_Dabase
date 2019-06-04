@@ -82,12 +82,16 @@ public class ExtraController implements Initializable{
 					public void changed( ObservableValue<? extends Workdate> observableValue, 
 							Workdate oldItem, Workdate newItem) { 
 						if(newItem != null) {
+						String temp[] = newItem.getBtime().toString().split("-", 4);
 						getworkname = newItem.getName();
-						getwyear = newItem.getBtime().substring(0, 4);
-						getwmonth = newItem.getBtime().substring(5, 6);
-						getwday = newItem.getBtime().substring(7,9);
-						getwbtime = newItem.getBtime().substring(10,12);
-						getwetime = newItem.getEtime().substring(10,12);
+						getwyear = temp[0];
+						getwmonth = temp[1];
+						getwday = temp[2];
+						String tt[] = temp[3].split(":");
+						getwbtime = tt[0];
+						String te[] = newItem.getEtime().toString().split("-", 4);
+						String t[] = te[3].split(":");
+						getwetime = t[0];
 						System.out.println(getworkname+getwyear+getwmonth+getwday+getwbtime+getwetime);
 						}
 						}
@@ -259,7 +263,9 @@ public class ExtraController implements Initializable{
 		try {
 			rs = pStatement.executeQuery();
 			String wname = null;
-			int wyear, wmonth, wday, wbtime, wetime, wtimes;
+			int wyear;
+			int wmonth, wday;
+			int wbtime, wetime, wtimes;
 			String wtype = null;
 			String wstate = null;
 			String wextra = null;
@@ -282,7 +288,7 @@ public class ExtraController implements Initializable{
 				if(rs.getInt("state")==2) {
 					wstate = "未通过";
 				}
-				String bt = wyear + "/" + wmonth + "/" + wday + "/";
+				String bt = wyear + "-" + wmonth + "-" + wday + "-";
 				workdate.add(new Workdate(wname,bt+wbtime+":00",bt+wetime+":00",wtype,wtimes+"",wextra,wstate));
 				System.out.println(bt);
 			}

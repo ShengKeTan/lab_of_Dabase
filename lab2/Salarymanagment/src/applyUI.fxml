@@ -9,13 +9,13 @@
    <children>
       <AnchorPane layoutX="-210.0" layoutY="-184.0" prefHeight="383.0" prefWidth="607.0">
          <children>
-            <TextField layoutX="222.0" layoutY="219.0" prefHeight="27.0" prefWidth="75.0" promptText="输入年份" />
-            <TextField layoutX="319.0" layoutY="219.0" prefHeight="27.0" prefWidth="75.0" promptText="输入月份" />
-            <TextField layoutX="417.0" layoutY="219.0" prefHeight="27.0" prefWidth="75.0" promptText="输入日期" />
+            <TextField fx:id="input_byear" layoutX="222.0" layoutY="219.0" prefHeight="27.0" prefWidth="75.0" promptText="输入年份" />
+            <TextField fx:id="input_bmonth" layoutX="319.0" layoutY="219.0" prefHeight="27.0" prefWidth="75.0" promptText="输入月份" />
+            <TextField fx:id="input_bday" layoutX="417.0" layoutY="219.0" prefHeight="27.0" prefWidth="75.0" promptText="输入日期" />
             <ChoiceBox fx:id="bhour" layoutX="518.0" layoutY="219.0" prefHeight="27.0" prefWidth="61.0" />
-            <TextField layoutX="222.0" layoutY="288.0" prefHeight="27.0" prefWidth="75.0" promptText="输入年份" />
-            <TextField layoutX="319.0" layoutY="288.0" prefHeight="27.0" prefWidth="75.0" promptText="输入月份" />
-            <TextField layoutX="417.0" layoutY="288.0" prefHeight="27.0" prefWidth="75.0" promptText="输入日期" />
+            <TextField fx:id="input_eyear" layoutX="222.0" layoutY="288.0" prefHeight="27.0" prefWidth="75.0" promptText="输入年份" />
+            <TextField fx:id="input_emonth" layoutX="319.0" layoutY="288.0" prefHeight="27.0" prefWidth="75.0" promptText="输入月份" />
+            <TextField fx:id="input_eday" layoutX="417.0" layoutY="288.0" prefHeight="27.0" prefWidth="75.0" promptText="输入日期" />
             <ChoiceBox fx:id="ehour" layoutX="518.0" layoutY="288.0" prefHeight="27.0" prefWidth="61.0" />
             <ChoiceBox fx:id="type" layoutX="281.0" layoutY="336.0" prefHeight="27.0" prefWidth="113.0" />
             <Label layoutX="297.0" layoutY="224.0" text="年" />

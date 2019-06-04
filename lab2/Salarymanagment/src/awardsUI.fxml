@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AwardsController">
+   <children>
+      <SplitPane dividerPositions="0.215962441314554" orientation="VERTICAL" prefHeight="428.0" prefWidth="643.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <ChoiceBox fx:id="dchoice" layoutX="49.0" layoutY="14.0" prefWidth="150.0" />
+                  <ChoiceBox fx:id="pchoice" layoutX="252.0" layoutY="14.0" prefWidth="150.0" />
+                  <TextField fx:id="inputname" layoutX="252.0" layoutY="55.0" prefHeight="27.0" prefWidth="150.0" promptText="输入姓名" />
+                  <Button layoutX="431.0" layoutY="36.0" mnemonicParsing="false" onAction="#on_search_click" prefHeight="33.0" prefWidth="82.0" text="查询" />
+                  <Label layoutX="14.0" layoutY="19.0" text="部门" />
+                  <Label layoutX="215.0" layoutY="19.0" text="职务" />
+                  <Label layoutX="215.0" layoutY="60.0" text="姓名" />
+                  <Button fx:id="back" layoutX="537.0" layoutY="36.0" mnemonicParsing="false" onAction="#on_back_click" prefHeight="33.0" prefWidth="82.0" text="返回" />
+                  <Label layoutX="14.0" layoutY="60.0" text="年份" />
+                  <ChoiceBox fx:id="ychoice" layoutX="49.0" layoutY="55.0" prefWidth="150.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <TableView fx:id="table_award" prefHeight="330.0" prefWidth="641.0">
+                    <columns>
+                      <TableColumn fx:id="eid" prefWidth="75.0" text="编号" />
+                      <TableColumn fx:id="ename" prefWidth="79.0" text="姓名" />
+                        <TableColumn fx:id="dname" prefWidth="82.0" text="部门" />
+                        <TableColumn fx:id="pname" prefWidth="91.0" text="职务" />
+                        <TableColumn fx:id="bpay" prefWidth="108.0" text="基本工资/年" />
+                        <TableColumn fx:id="extra" prefWidth="105.0" text="津贴/年" />
+                        <TableColumn fx:id="awards" prefWidth="100.0" text="年终奖" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

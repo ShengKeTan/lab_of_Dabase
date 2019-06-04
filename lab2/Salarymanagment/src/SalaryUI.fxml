@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SalaryController">
+   <children>
+      <AnchorPane layoutX="-200.0" layoutY="-182.0" prefHeight="607.0" prefWidth="968.0">
+         <children>
+            <SplitPane dividerPositions="0.20785219399538107" layoutX="200.0" layoutY="182.0" orientation="VERTICAL" prefHeight="435.0" prefWidth="768.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <ChoiceBox fx:id="dchoice" layoutX="44.0" layoutY="14.0" prefWidth="150.0" />
+                        <ChoiceBox fx:id="pchoice" layoutX="329.0" layoutY="14.0" prefWidth="150.0" />
+                        <DatePicker fx:id="date_begin" layoutX="11.0" layoutY="45.0" prefHeight="27.0" prefWidth="183.0" promptText="起始时间" />
+                        <DatePicker fx:id="date_end" layoutX="296.0" layoutY="45.0" prefHeight="27.0" prefWidth="183.0" promptText="截止时间" />
+                        <TextField fx:id="inputname" layoutX="563.0" layoutY="14.0" promptText="输入姓名" />
+                        <Button layoutX="651.0" layoutY="52.0" mnemonicParsing="false" onAction="#on_serach_click" prefHeight="27.0" prefWidth="79.0" text="查询" />
+                        <Label layoutX="10.0" layoutY="19.0" text="部门" />
+                        <Label layoutX="296.0" layoutY="19.0" text="职务" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="318.0" prefWidth="766.0">
+                     <children>
+                        <TableView fx:id="monthtable" prefHeight="297.0" prefWidth="766.0">
+                          <columns>
+                            <TableColumn fx:id="eid" prefWidth="55.0" text="编号" />
+                            <TableColumn fx:id="ename" prefWidth="67.0" text="姓名" />
+                              <TableColumn fx:id="dname" prefWidth="73.0" text="部门" />
+                              <TableColumn fx:id="pname" prefWidth="70.0" text="职务" />
+                              <TableColumn fx:id="rest" prefWidth="64.0" text="迟到" />
+                              <TableColumn fx:id="duty" prefWidth="74.0" text="考勤/缺勤" />
+                              <TableColumn fx:id="allowance" prefWidth="82.0" text="津贴" />
+                              <TableColumn fx:id="bpay" prefWidth="92.0" text="基本工资" />
+                              <TableColumn fx:id="salary" prefWidth="86.0" text="总工资" />
+                              <TableColumn fx:id="time" prefWidth="102.0" text="时间" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="back" layoutX="655.0" layoutY="304.0" mnemonicParsing="false" onAction="#on_back_click" prefHeight="27.0" prefWidth="79.0" text="返回" />
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
