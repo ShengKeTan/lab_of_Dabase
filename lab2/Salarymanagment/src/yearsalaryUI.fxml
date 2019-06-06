@@ -5,46 +5,46 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane prefHeight="554.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.YearsalaryController">
    <children>
-      <AnchorPane layoutX="-234.0" layoutY="-175.0" prefHeight="729.0" prefWidth="1169.0">
+      <AnchorPane layoutX="-234.0" layoutY="-175.0" prefHeight="731.0" prefWidth="1261.0">
          <children>
-            <SplitPane dividerPositions="0.1263537906137184" layoutX="235.0" layoutY="175.0" orientation="VERTICAL" prefHeight="556.0" prefWidth="939.0">
+            <SplitPane dividerPositions="0.1263537906137184" layoutX="235.0" layoutY="175.0" orientation="VERTICAL" prefHeight="556.0" prefWidth="1026.0">
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                      <children>
-                        <ChoiceBox layoutX="46.0" layoutY="19.0" prefHeight="27.0" prefWidth="135.0" />
-                        <ChoiceBox layoutX="240.0" layoutY="19.0" prefHeight="27.0" prefWidth="135.0" />
+                        <ChoiceBox fx:id="dchoice" layoutX="46.0" layoutY="19.0" prefHeight="27.0" prefWidth="135.0" />
+                        <ChoiceBox fx:id="pchoice" layoutX="240.0" layoutY="19.0" prefHeight="27.0" prefWidth="135.0" />
                         <Label layoutX="6.0" layoutY="24.0" text="部门" />
                         <Label layoutX="205.0" layoutY="25.0" text="职务" />
-                        <ChoiceBox layoutX="441.0" layoutY="19.0" prefHeight="27.0" prefWidth="135.0" />
+                        <ChoiceBox fx:id="ychoice" layoutX="441.0" layoutY="19.0" prefHeight="27.0" prefWidth="135.0" />
                         <Label layoutX="404.0" layoutY="25.0" text="年份" />
-                        <TextField layoutX="638.0" layoutY="19.0" prefHeight="27.0" prefWidth="135.0" promptText="输入姓名" />
-                        <Button layoutX="826.0" layoutY="19.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="70.0" text="查询" />
+                        <TextField fx:id="inputname" layoutX="638.0" layoutY="19.0" prefHeight="27.0" prefWidth="135.0" promptText="输入姓名" />
+                        <Button layoutX="893.0" layoutY="19.0" mnemonicParsing="false" onAction="#on_search_click" prefHeight="27.0" prefWidth="70.0" text="查询" />
                         <Label layoutX="607.0" layoutY="24.0" text="姓名" />
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="277.0" prefWidth="908.0">
                      <children>
-                        <TableView layoutY="1.0" prefHeight="440.0" prefWidth="939.0">
+                        <TableView fx:id="table_year" layoutY="1.0" prefHeight="440.0" prefWidth="1027.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" text="姓名" />
-                            <TableColumn prefWidth="59.89886474609375" text="1" />
-                              <TableColumn prefWidth="74.64044189453125" text="2" />
-                              <TableColumn prefWidth="78.15725708007812" text="3" />
-                              <TableColumn prefWidth="76.41571044921875" text="4" />
-                              <TableColumn prefWidth="75.415771484375" text="5" />
-                              <TableColumn prefWidth="76.67413330078125" text="6" />
-                              <TableColumn prefWidth="70.7078857421875" text="7" />
-                              <TableColumn prefWidth="74.67431640625" text="8" />
-                              <TableColumn prefWidth="74.1910400390625" text="9" />
-                              <TableColumn prefWidth="69.44927978515625" text="10" />
-                              <TableColumn prefWidth="63.19091796875" text="11" />
-                              <TableColumn prefWidth="72.80908203125" text="12" />
+                            <TableColumn fx:id="ename" prefWidth="75.0" text="姓名" />
+                            <TableColumn fx:id="m1" prefWidth="59.89886474609375" text="1" />
+                              <TableColumn fx:id="m2" prefWidth="74.64044189453125" text="2" />
+                              <TableColumn fx:id="m3" prefWidth="78.15725708007812" text="3" />
+                              <TableColumn fx:id="m4" prefWidth="76.41571044921875" text="4" />
+                              <TableColumn fx:id="m5" prefWidth="75.415771484375" text="5" />
+                              <TableColumn fx:id="m6" prefWidth="76.67413330078125" text="6" />
+                              <TableColumn fx:id="m7" prefWidth="70.7078857421875" text="7" />
+                              <TableColumn fx:id="m8" prefWidth="74.67431640625" text="8" />
+                              <TableColumn fx:id="m9" prefWidth="74.1910400390625" text="9" />
+                              <TableColumn fx:id="m10" prefWidth="69.44927978515625" text="10" />
+                              <TableColumn fx:id="m11" prefWidth="63.19091796875" text="11" />
+                              <TableColumn fx:id="m12" prefWidth="72.80908203125" text="12" />
+                              <TableColumn fx:id="year" prefWidth="79.0" text="合计" />
                           </columns>
                         </TableView>
-                        <Button layoutX="413.0" layoutY="448.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="103.0" text="返回" />
+                        <Button fx:id="back" layoutX="478.0" layoutY="451.0" mnemonicParsing="false" onAction="#on_back_click" prefHeight="27.0" prefWidth="103.0" text="返回" />
                      </children>
                   </AnchorPane>
               </items>

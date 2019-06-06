@@ -26,6 +26,7 @@ public class AdminController implements Initializable{
 	static Stage checkstage = null;
 	static Stage salarystage = null;
 	static Stage awardsstage = null;
+	static Stage yearstage = null;
 	//界面根结点
 	private Parent employee_root = null;
 	private Parent setsalary_root = null;
@@ -34,6 +35,7 @@ public class AdminController implements Initializable{
 	private Parent check_root = null;
 	private Parent salary_root = null;
 	private Parent awards_root = null;
+	private Parent year_root = null;
 	//界面窗口
 	private static Scene employee_scene = null;
 	private static Scene setsalary_scene = null;
@@ -42,11 +44,30 @@ public class AdminController implements Initializable{
 	private static Scene check_scene = null;
 	private static Scene salary_scene = null;
 	private static Scene awards_scene = null;
+	private static Scene year_scene = null;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@FXML
+	private void on_year_cilck() {
+		try {
+			//set root
+			year_root = FXMLLoader.load(getClass().getClassLoader().getResource("yearsalaryUI.fxml"));
+			//set scene
+			year_scene = new Scene(year_root);
+			//set stage
+			yearstage = new Stage();
+			//change scene
+			setYearUI();
+			//show stage
+			yearstage.show();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@FXML
@@ -183,6 +204,11 @@ public class AdminController implements Initializable{
 		alert.setHeaderText("作者信息");
 		alert.setContentText("CS1602谭胜克");
 		alert.showAndWait();
+	}
+	
+	public static void setYearUI() {
+		yearstage.setTitle("year salary");
+		yearstage.setScene(year_scene);
 	}
 	
 	public static void setAwardsUI() {

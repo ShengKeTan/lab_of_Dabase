@@ -63,53 +63,6 @@ public class AwardsController implements Initializable{
 				SimpleStringProperty(cellDate.getValue().getAward()));
 	}
 	
-	/*@FXML private void test() {
-		
-		on_search_click();
-		int id = get_inputname_id();
-		System.out.println(getextra(id, "extra"));
-		System.out.println(getextra(id, "pay"));
-	}*/
-	
-/*	@FXML
-	private void on_search_click() {
-		//connect to mysql
-		Con2mysql con = new Con2mysql();
-		Connection mycon = con.connect2mysql();
-		//get info
-		PreparedStatement pStatement = null;
-		ResultSet rs = null;
-		String sql = null;
-		
-		String year_temp = ychoice.getValue().toString().trim();
-		int getyear = Integer.parseInt(year_temp);
-		try {
-			sql = "select employee.eid, employee.ename from employee";
-			pStatement = (PreparedStatement)mycon.prepareStatement(sql);
-		}catch(SQLException e1) {
-			e1.printStackTrace();
-		}
-		try {
-			rs = pStatement.executeQuery();
-			int geteid = 0;
-			BigDecimal temp[] = new BigDecimal[12];
-			while(rs.next()) {
-				geteid = rs.getInt("employee.eid");
-				for(int i = 1; i <= 12; i++) {
-					temp[i] = getextra(geteid,getyear,i);
-				}
-				
-			}
-		}catch(SQLException e1) {
-			e1.printStackTrace();
-		}
-		try {
-			mycon.close();
-		}catch(SQLException e1) {
-			e1.printStackTrace();
-		}
-	}*/
-	
 	private int get_inputname_id() {
 		int id = 0;
 		//connect to mysql

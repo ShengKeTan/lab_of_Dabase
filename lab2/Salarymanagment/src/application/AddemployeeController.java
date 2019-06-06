@@ -51,7 +51,26 @@ public class AddemployeeController implements Initializable{
 		Stage stage = (Stage)sure.getScene().getWindow();
 	    stage.close();
 	}
+	
+	private int check_input() {
+		int num = 1;
+		if(inputname.getText().equals("")) return -1;
+		if(inputage.getText().equals("")) return -1;
+		if(schoice.getValue()==null) return -1;
+		return num;
+	}
+	
 	private void add_empdate() {
+		
+		if(check_input()==-1) {
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Information Dialog");
+			alert.setHeaderText("数据错误");
+			alert.setContentText("请检查输入！");
+			alert.showAndWait();
+			return;
+		}
+		
 		//connect to mysql
 		Con2mysql con = new Con2mysql();
 		Connection mycon = con.connect2mysql();

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -36,7 +37,7 @@
                   </Menu>
                   <Menu mnemonicParsing="false" text="统计管理">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="年工资统计" />
+                        <MenuItem mnemonicParsing="false" onAction="#on_year_cilck" text="年工资统计" />
                         <MenuItem mnemonicParsing="false" onAction="#on_awards_click" text="年终奖统计" />
                      </items>
                   </Menu>
