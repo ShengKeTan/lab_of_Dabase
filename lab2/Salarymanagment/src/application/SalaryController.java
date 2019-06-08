@@ -13,6 +13,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -220,6 +222,25 @@ public class SalaryController implements Initializable {
 			e1.printStackTrace();
 		}
 		monthtable.setItems(monthdata);
+	}
+	
+	@FXML
+	private void on_printput_click() {
+		if(monthdata.isEmpty()) {
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Information Dialog");
+			alert.setHeaderText("生成失败");
+			alert.setContentText("生成失败！");
+			alert.showAndWait();
+			return;
+		}
+		String[] headers = {"职工编号","姓名","部门","职务","迟到次数","考勤/缺勤","津贴","基本工资","总工资","时间"};
+		Out2Excel.exportExcel("test", monthdata, headers, "table");
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Information Dialog");
+		alert.setHeaderText("打印成功");
+		alert.setContentText("打印成功");
+		alert.showAndWait();
 	}
 	
 	/*private int date_of_month() {

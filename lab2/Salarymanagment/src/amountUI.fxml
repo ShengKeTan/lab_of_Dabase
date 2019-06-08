@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AmountController">
+   <children>
+      <AnchorPane layoutX="-132.0" layoutY="-150.0" prefHeight="477.0" prefWidth="639.0">
+         <children>
+            <SplitPane dividerPositions="0.26506024096385544" layoutX="131.0" layoutY="149.0" orientation="VERTICAL" prefHeight="334.0" prefWidth="514.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <ChoiceBox fx:id="dchoice" layoutX="44.0" layoutY="15.0" prefHeight="27.0" prefWidth="119.0" />
+                        <ChoiceBox fx:id="pchoice" layoutX="44.0" layoutY="50.0" prefHeight="27.0" prefWidth="119.0" />
+                        <TextField fx:id="inputname" layoutX="235.0" layoutY="15.0" prefHeight="27.0" prefWidth="119.0" />
+                        <Label layoutX="10.0" layoutY="20.0" text="部门" />
+                        <Label layoutX="10.0" layoutY="55.0" text="职务" />
+                        <Label layoutX="200.0" layoutY="20.0" text="姓名" />
+                        <Button layoutX="373.0" layoutY="15.0" mnemonicParsing="false" onAction="#on_search_click" prefHeight="27.0" prefWidth="59.0" text="查询" />
+                        <Button layoutX="439.0" layoutY="15.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="59.0" text="删除" />
+                        <Button layoutX="279.0" layoutY="50.0" mnemonicParsing="false" onAction="#on_sure_click" prefHeight="27.0" prefWidth="75.0" text="增加管理" />
+                        <Button layoutX="198.0" layoutY="50.0" mnemonicParsing="false" onAction="#on_false_click" prefHeight="27.0" prefWidth="75.0" text="取消管理" />
+                        <Button fx:id="back" layoutX="439.0" layoutY="50.0" mnemonicParsing="false" onAction="#on_back_click" prefHeight="27.0" prefWidth="59.0" text="返回" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <TableView fx:id="amounttable" prefHeight="241.0" prefWidth="515.0">
+                          <columns>
+                            <TableColumn fx:id="eid" prefWidth="60.073028564453125" text="编号" />
+                            <TableColumn fx:id="ename" prefWidth="77.06327819824219" text="姓名" />
+                              <TableColumn fx:id="dname" prefWidth="76.05841064453125" text="部门" />
+                              <TableColumn fx:id="pname" prefWidth="69.0633544921875" text="职务" />
+                              <TableColumn fx:id="uname" prefWidth="147.89285278320312" text="用户名" />
+                              <TableColumn fx:id="admin" prefWidth="77.0731201171875" text="管理权限" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

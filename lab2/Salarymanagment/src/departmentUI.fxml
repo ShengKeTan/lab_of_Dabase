@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DepartController">
+   <children>
+      <AnchorPane layoutX="-100.0" layoutY="-100.0" prefHeight="413.0" prefWidth="603.0">
+         <children>
+            <SplitPane dividerPositions="0.4550898203592814" layoutX="100.0" layoutY="99.0" prefHeight="320.0" prefWidth="503.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <TableView fx:id="table_depart" prefHeight="318.0" prefWidth="224.0">
+                          <columns>
+                            <TableColumn fx:id="did" prefWidth="93.0" text="编号" />
+                            <TableColumn fx:id="dname" prefWidth="130.0" text="名称" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <SplitPane dividerPositions="0.8544303797468354" orientation="VERTICAL" prefHeight="318.0" prefWidth="269.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="266.0" prefWidth="269.0">
+                                      <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                             <children>
+                                                <Label layoutX="1.0" layoutY="6.0" text="增加" />
+                                                <TextField fx:id="addname" layoutX="34.0" layoutY="60.0" prefHeight="27.0" prefWidth="154.0" />
+                                                <Button layoutX="202.0" layoutY="60.0" mnemonicParsing="false" onAction="#on_add_click" prefHeight="27.0" prefWidth="59.0" text="确定" />
+                                                <Label layoutX="1.0" layoutY="65.0" text="名称" />
+                                             </children>
+                                          </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                             <children>
+                                                <Label layoutX="1.0" layoutY="6.0" text="修改" />
+                                                <TextField fx:id="changename" layoutX="35.0" layoutY="51.0" prefHeight="27.0" prefWidth="154.0" />
+                                                <Button layoutX="201.0" layoutY="51.0" mnemonicParsing="false" onAction="#on_change_click" prefHeight="27.0" prefWidth="59.0" text="确定" />
+                                                <Label layoutX="1.0" layoutY="56.0" text="名称" />
+                                             </children>
+                                          </AnchorPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                 <children>
+                                    <Button layoutX="21.0" layoutY="8.0" mnemonicParsing="false" onAction="#on_refresh_click" prefHeight="27.0" prefWidth="59.0" text="刷新" />
+                                    <Button fx:id="back" layoutX="194.0" layoutY="8.0" mnemonicParsing="false" onAction="#on_back_click" prefHeight="27.0" prefWidth="59.0" text="返回" />
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -27,6 +27,8 @@ public class AdminController implements Initializable{
 	static Stage salarystage = null;
 	static Stage awardsstage = null;
 	static Stage yearstage = null;
+	static Stage amountstage = null;
+	static Stage departstage = null;
 	//界面根结点
 	private Parent employee_root = null;
 	private Parent setsalary_root = null;
@@ -36,6 +38,8 @@ public class AdminController implements Initializable{
 	private Parent salary_root = null;
 	private Parent awards_root = null;
 	private Parent year_root = null;
+	private Parent amount_root = null;
+	private Parent depart_root = null;
 	//界面窗口
 	private static Scene employee_scene = null;
 	private static Scene setsalary_scene = null;
@@ -45,11 +49,49 @@ public class AdminController implements Initializable{
 	private static Scene salary_scene = null;
 	private static Scene awards_scene = null;
 	private static Scene year_scene = null;
+	private static Scene amount_scene = null;
+	private static Scene depart_scene = null;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@FXML
+	private void on_depart_click() {
+		try {
+			//set root
+			depart_root = FXMLLoader.load(getClass().getClassLoader().getResource("departmentUI.fxml"));
+			//set scene
+			depart_scene = new Scene(depart_root);
+			//set stage
+			departstage = new Stage();
+			//change scene
+			setDepartUI();
+			//show stage
+			departstage.show();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
+	private void on_amount_click() {
+		try {
+			//set root
+			amount_root = FXMLLoader.load(getClass().getClassLoader().getResource("amountUI.fxml"));
+			//set scene
+			amount_scene = new Scene(amount_root);
+			//set stage
+			amountstage = new Stage();
+			//change scene
+			setAmountUI();
+			//show stage
+			amountstage.show();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@FXML
@@ -196,7 +238,6 @@ public class AdminController implements Initializable{
 		}
 	}
 	
-	
 	@FXML
 	private void on_about_click() {
 		Alert alert = new Alert(AlertType.INFORMATION);
@@ -204,6 +245,18 @@ public class AdminController implements Initializable{
 		alert.setHeaderText("作者信息");
 		alert.setContentText("CS1602谭胜克");
 		alert.showAndWait();
+	}
+	
+	@FXML
+	private void setDepartUI() {
+		departstage.setTitle("department info");
+		departstage.setScene(depart_scene);
+	}
+	
+	@FXML
+	private void setAmountUI() {
+		amountstage.setTitle("amount");
+		amountstage.setScene(amount_scene);
 	}
 	
 	public static void setYearUI() {

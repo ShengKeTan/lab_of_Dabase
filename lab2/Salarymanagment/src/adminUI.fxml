@@ -15,7 +15,7 @@
                 <Menu mnemonicParsing="false" text="信息管理">
                   <items>
                     <MenuItem mnemonicParsing="false" onAction="#on_empinfo_click" text="职工信息管理" />
-                        <MenuItem mnemonicParsing="false" text="部门管理" />
+                        <MenuItem mnemonicParsing="false" onAction="#on_depart_click" text="部门管理" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="工资管理">
@@ -43,8 +43,7 @@
                   </Menu>
                   <Menu mnemonicParsing="false" text="用户管理">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="账号管理" />
-                        <MenuItem mnemonicParsing="false" text="权限设置" />
+                      <MenuItem mnemonicParsing="false" onAction="#on_amount_click" text="账号管理" />
                     </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="帮助">
